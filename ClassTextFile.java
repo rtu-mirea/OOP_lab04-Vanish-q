@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -18,7 +19,7 @@ public class ClassTextFile {
     }
     public TextWork task4(){
         try {
-            Scanner in = new Scanner(new File("Task4.txt"));
+            Scanner in = new Scanner(new DataInputStream(new FileInputStream(new File(fileName))));
             TextWork obj = new TextWork();
             obj.inputText(in.nextLine());
             return obj;

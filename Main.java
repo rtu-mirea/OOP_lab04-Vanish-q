@@ -81,8 +81,8 @@ public class Main {
             else
                 System.out.println("File not exist");
 
-            System.out.print("Введите путь к файлу №3: D:\\");
-            File F3 = new File("D:\\" + in.nextLine());//Vanish\MyFile3.txt
+            //System.out.print("Введите путь к файлу №3: D:\\");
+            File F3 = new File("D:\\Vanish\\MyFile3.txt");
             F3.createNewFile();
             System.out.println("Файл №3:");
             if (F3.exists())
@@ -134,13 +134,14 @@ public class Main {
 
             File dir2 = new File("D:\\Vanish\\ООП Java\\Laba4");
             String arr[] = dir2.list();
-
+            System.out.println("Файлы из папки из массива строк:");
             for (String str: arr){
                 System.out.println(str);
             }
             System.out.println();
             int count = 0;
             File arr2[] = dir2.listFiles();
+            System.out.println("Файлы из папки из массива файлов:");
             for(File file: arr2){
                 System.out.println(file.getAbsolutePath());
                 if(file.isFile()) count++;
@@ -172,6 +173,7 @@ public class Main {
             while((x = reader.read()) != -1) {
                 writer.write((char)x);
             }
+            System.out.println("Все символы были пернесены из файла T1.txt в файл T2.txt");
             reader.close();
             writer.close();
         }
@@ -186,6 +188,7 @@ public class Main {
                 writer.write((char) i);
             }
             writer.close();
+            System.out.println("Файл A.txt был заполнен 512 символами");
 
             BufferedReader inb = new BufferedReader(new InputStreamReader(new FileInputStream("A.txt")), 128);
             BufferedWriter outb = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("B.txt")), 128);
@@ -195,6 +198,7 @@ public class Main {
                 outb.write(buf);
                 outb.newLine();
             }
+            System.out.println("Символы по 128 штук были перенесены из файла A.txt в B.txt");
             inb.close();
             outb.close();
         }
@@ -205,12 +209,12 @@ public class Main {
     private static void task3Ex3(){
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\Vanish\\ООП Java\\Laba4\\src\\A.txt"), "Cp1251"));
-            System.out.println(Charset.defaultCharset().name());
+            System.out.println("Кодировка системы: " + Charset.defaultCharset().name());
             String str = in.readLine();
-            System.out.println(str);
+            System.out.println("Строка прочитанная в неверной кодировке:\n" + str);
             in = new BufferedReader(new InputStreamReader(new FileInputStream("D:\\Vanish\\ООП Java\\Laba4\\src\\B.txt"), "UTF-8"));
             str = in.readLine();
-            System.out.println(str);
+            System.out.println("Строка прочитанная в верной кодировке:\n" + str);
         }
         catch (Exception e){System.err.println(e);}
     }
@@ -234,7 +238,7 @@ public class Main {
                         System.out.println("Введите название файла");
                         ClassTextFile obj = new ClassTextFile(in.nextLine());
                         TextWork textObj = obj.task4();
-                        System.out.println(textObj.getText());
+                        System.out.println("екст объекта, прочитанный из файла\n" + textObj.getText());
                         break;
                     case 2:
                         ConsoleInput object = new ConsoleInput();

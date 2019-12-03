@@ -52,5 +52,4 @@ public class SerilisationClass {
         catch (Exception e){}
         this.arr = arr;
     }
-
 }
